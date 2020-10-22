@@ -14,6 +14,8 @@ public partial class _Default : System.Web.UI.Page
     {
         // Init
 
+        // If you just set this in the control you got problems by rendering the inner controls
+
         pageControlV.TabPages[1].Visible = false;
         pageControlV.TabPages[2].Visible = false;
 
@@ -25,10 +27,12 @@ public partial class _Default : System.Web.UI.Page
     {
         // Very important code to determine if your allowed ... :)
         //*********************
+        //
         // True throws the bug , false not
-        //return true;
+        //
+        return true;
 
-        return false;
+        //return false;
     }
 
 

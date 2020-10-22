@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-   
+
 
     <style type="text/css">
         .ruler {
@@ -78,13 +78,13 @@
         <br />
     </asp:Panel>
 
-       <div class="text-center">
+    <div class="text-center">
         <asp:Label ID="LabelTopic" CssClass="text-center" runat="server" Text="Form" Font-Size="XX-Large"></asp:Label><br />
         <asp:Label ID="LabelErrormessage" CssClass="text-center" runat="server" Font-Bold="true" ForeColor="Red"></asp:Label>
     </div>
     <br />
     <div id="loader" class="center"></div>
-        <dx:BootstrapPageControl runat="server" ID="pageControlV" ClientInstanceName="pageControlV" Width="100%" ActiveTabIndex="0">
+    <dx:BootstrapPageControl runat="server" ID="pageControlV" ClientInstanceName="pageControlV" Width="100%" ActiveTabIndex="0">
         <TabPages>
             <dx:BootstrapTabPage Text="Details" Visible="true">
                 <ContentCollection>
@@ -99,7 +99,7 @@
                                     </ContentCollection>
                                 </dx:BootstrapLayoutItem>
 
-                             
+
 
                                 <dx:BootstrapLayoutItem Caption="Beschreibung" FieldName="Caption_Beschreibung" ColSpanMd="12">
                                     <ContentCollection>
@@ -172,12 +172,11 @@
                                         <dx:BootstrapLayoutItem Caption="anderen Mitarbeiter">
                                             <ContentCollection>
                                                 <dx:ContentControl>
-                                                
                                                 </dx:ContentControl>
                                             </ContentCollection>
                                         </dx:BootstrapLayoutItem>
 
-                                
+
                                     </Items>
 
                                 </dx:BootstrapLayoutGroup>
@@ -193,126 +192,12 @@
                 <ContentCollection>
                     <dx:ContentControl runat="server">
                         <asp:Panel ID="PanelUCFields" runat="server"></asp:Panel>
-                       
+
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:BootstrapTabPage>
 
-          
-
-
         </TabPages>
     </dx:BootstrapPageControl>
 
-        <asp:SqlDataSource ID="SqlDataSource_Mitarbeiter_Abteilung" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT id,name FROM [tickets_mitarbeiter] where abteilung=@department or abteilung2=@department or id=0 order by name">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="for_department" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_Prioritaet_Edit" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_prioritaet] where id<3"></asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_Kategorien" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_kategorien] where abteilung=@department order by kategorie">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="for_department" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_New_user_customgrid" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>"
-        DeleteCommand="DELETE FROM [tickets_new_user_customgrid] WHERE [id] = @id"
-        InsertCommand="INSERT INTO [tickets_new_user_customgrid] ([ticket_temp_id], [Nachname], [Vorname], [Abteilung], [Vorgesetzter], [BodeGesamtVerteiler]) VALUES (@ticket_temp_id, @Nachname, @Vorname, @Abteilung, @Vorgesetzter, @BodeGesamtVerteiler)"
-        SelectCommand="SELECT * FROM [tickets_new_user_customgrid] where ticket_temp_id=@Current_Ticketid " UpdateCommand="UPDATE [tickets_new_user_customgrid] SET [ticket_temp_id] = @ticket_temp_id, [Nachname] = @Nachname, [Vorname] = @Vorname, [Abteilung] = @Abteilung, [Vorgesetzter] = @Vorgesetzter, [BodeGesamtVerteiler] = @BodeGesamtVerteiler WHERE [id] = @id">
-        <SelectParameters>
-            <asp:SessionParameter Name="Current_Ticketid" SessionField="Current_Ticketid" />
-        </SelectParameters>
-        <DeleteParameters>
-            <asp:Parameter Name="id" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="ticket_temp_id" Type="String" />
-            <asp:Parameter Name="Nachname" Type="String" />
-            <asp:Parameter Name="Vorname" Type="String" />
-            <asp:Parameter Name="Abteilung" Type="String" />
-            <asp:Parameter Name="Vorgesetzter" Type="String" />
-            <asp:Parameter Name="BodeGesamtVerteiler" Type="Boolean" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="ticket_temp_id" Type="String" />
-            <asp:Parameter Name="Nachname" Type="String" />
-            <asp:Parameter Name="Vorname" Type="String" />
-            <asp:Parameter Name="Abteilung" Type="String" />
-            <asp:Parameter Name="Vorgesetzter" Type="String" />
-            <asp:Parameter Name="BodeGesamtVerteiler" Type="Boolean" />
-            <asp:Parameter Name="id" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_kategorien] where abteilung=@department order by kategorie">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="department" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource_Abteilungen" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_abteilungen] where id>0 order by abteilung"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource_Abteilungen_Weiterleitung" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_abteilungen] where id>0 and id!=@department order by abteilung">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="department" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_Mitarbeiter_Weiterleitung" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_mitarbeiter] where abteilung=@department or abteilung2=@department or id=0 order by name">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="department" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_Mitarbeiter_Weiterleitung2" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_mitarbeiter] where abteilung=@department or id=0 order by name">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="department" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-    <dx:BootstrapGridView ID="BootstrapGridView2" Visible="false" runat="server"></dx:BootstrapGridView>
-
-    <asp:SqlDataSource ID="SqlDataSource_Ticket_Protokoll" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM tickets_protokoll where meldung like @current_prot_id order by id desc">
-        <SelectParameters>
-
-            <asp:SessionParameter Name="current_prot_id" SessionField="current_prot_id" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" DeleteCommand="DELETE FROM [tickets_new_user_customgrid] WHERE [id] = @id" InsertCommand="INSERT INTO [tickets_new_user_customgrid] ([ticket_id], [Nachname], [Vorname], [Abteilung], [Vorgesetzter], [BodeGesamtVerteiler]) VALUES (@ticket_id, @Nachname, @Vorname, @Abteilung, @Vorgesetzter, @BodeGesamtVerteiler)" SelectCommand="SELECT * FROM [tickets_new_user_customgrid] where ticket_id=@Current_Ticketid " UpdateCommand="UPDATE [tickets_new_user_customgrid] SET [ticket_id] = @ticket_id, [Nachname] = @Nachname, [Vorname] = @Vorname, [Abteilung] = @Abteilung, [Vorgesetzter] = @Vorgesetzter, [BodeGesamtVerteiler] = @BodeGesamtVerteiler WHERE [id] = @id">
-        <SelectParameters>
-            <asp:SessionParameter Name="Current_Ticketid" SessionField="Current_Ticketid" />
-        </SelectParameters>
-        <DeleteParameters>
-            <asp:Parameter Name="id" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="ticket_id" Type="Int32" />
-            <asp:Parameter Name="Nachname" Type="String" />
-            <asp:Parameter Name="Vorname" Type="String" />
-            <asp:Parameter Name="Abteilung" Type="String" />
-            <asp:Parameter Name="Vorgesetzter" Type="String" />
-            <asp:Parameter Name="BodeGesamtVerteiler" Type="Boolean" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="ticket_id" Type="Int32" />
-            <asp:Parameter Name="Nachname" Type="String" />
-            <asp:Parameter Name="Vorname" Type="String" />
-            <asp:Parameter Name="Abteilung" Type="String" />
-            <asp:Parameter Name="Vorgesetzter" Type="String" />
-            <asp:Parameter Name="BodeGesamtVerteiler" Type="Boolean" />
-            <asp:Parameter Name="id" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="SqlDataSource_Status" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_status] where id<3"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource_Prioritaet" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_prioritaet]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource_Kostenstellen" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [kostenstellen] order by KST"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_prioritaet] where id<3"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource_Mitarbeiter" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_mitarbeiter] order by name" />
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:intranetConnectionString %>" SelectCommand="SELECT * FROM [tickets_mitarbeiter] where abteilung=@department  order by name">
-        <SelectParameters>
-            <asp:SessionParameter Name="department" SessionField="department" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
 </asp:Content>

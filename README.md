@@ -7,3 +7,6 @@ How to enable as there is not property like that ?
 
 
 ![Image Screenshot](RTUploadimageinPageControl/pic.PNG)
+
+## Solution
+Delete Line 110,111

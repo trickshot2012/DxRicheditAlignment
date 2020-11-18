@@ -22,7 +22,7 @@
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu" aria-controls="topMenu" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="navbar-brand" href="#">RTUploadimageinPageControl</a>
+                        <a class="navbar-brand" href="#">Alignment Icons are disabled</a>
                     </div>
                     <div class="collapse navbar-collapse" id="topMenu">
                         <dx:BootstrapMenu ID="TopMenu" runat="server" ShowPopOutImages="True" ItemAutoWidth="false" ClientInstanceName="topMenu">

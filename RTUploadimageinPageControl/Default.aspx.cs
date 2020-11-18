@@ -19,6 +19,8 @@ public partial class _Default : System.Web.UI.Page
         pageControlV.TabPages[1].Visible = false;
         pageControlV.TabPages[2].Visible = false;
 
+      
+
         // If you are allowed to view the second tab switch to true
       if (IsAllowedToWatchOtherTab()) pageControlV.TabPages[2].Visible = true;
     }

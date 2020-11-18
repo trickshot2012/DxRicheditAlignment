@@ -134,6 +134,14 @@
                                                                     <dx:BSRERDecreaseFontSizeCommand />
                                                                 </Items>
                                                             </dx:BSRERFontGroup>
+                                                                <dx:BSRERAlignmentGroup>
+                                                                <Items>
+                                                                  <dx:BSRERAlignCenterCommand />
+                                                                    <dx:BSRERAlignLeftCommand />
+                                                                    <dx:BSRERAlignRightCommand />
+                                                                </Items>
+                                                            </dx:BSRERAlignmentGroup>
+         
                                                             <dx:BSRERInsertFieldsGroup>
                                                                 <Items>
                                                                     <dx:BSRERInsertPictureCommand />
@@ -143,7 +151,7 @@
                                                         </Groups>
                                                     </dx:BSRERHomeTab>
                                                     <dx:BSRERFloatingObjectsTab Visible="false"></dx:BSRERFloatingObjectsTab>
-                                                    <dx:BSRERPageLayoutTab Visible="false"></dx:BSRERPageLayoutTab>
+                                                    <dx:BSRERPageLayoutTab Visible="true"></dx:BSRERPageLayoutTab>
 
                                                     <dx:BSRERHeaderAndFooterTab Visible="false"></dx:BSRERHeaderAndFooterTab>
                                                     <dx:BSRERTableDesignTab Visible="false"></dx:BSRERTableDesignTab>
